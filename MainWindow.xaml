@@ -11,12 +11,12 @@
 
         <xctk:IntegerUpDown x:Name="controlSigma" Minimum="10" Maximum="20" Value="10" Margin="34,60,698,344"/>
         <xctk:IntegerUpDown x:Name="controlMu" Minimum="35" Maximum="75" Value="50" Margin="146,60,582,344" />
-        <Button x:Name="btnLoadData" Content="Load Sensor Data" HorizontalAlignment="Left" Margin="34,95,0,0" VerticalAlignment="Top" Width="184"/>
+        <Button x:Name="btnLoadData" Content="Load Sensor Data" HorizontalAlignment="Left" Margin="34,95,0,0" VerticalAlignment="Top" Width="184" Click="btnLoadData_Click"/>
         <ListView x:Name="bothDataList" HorizontalAlignment="Left" Height="271" Margin="34,120,0,0" VerticalAlignment="Top" Width="184" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.View>
                 <GridView ColumnHeaderStringFormat="">
-                    <GridViewColumn Header="SensorA"/>
-                    <GridViewColumn Header="SensorB"/>
+                    <GridViewColumn Header="SensorA" DisplayMemberBinding="{Binding SensorA}"/>
+                    <GridViewColumn Header="SensorB" DisplayMemberBinding="{Binding SensorB}"/>
                 </GridView>
             </ListView.View>
         </ListView>

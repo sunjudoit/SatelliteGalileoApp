@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Galileo6;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,9 +47,33 @@ namespace SatelliteGalileoApp
                 sensorDataB.AddLast(DataB);
             }
 
+        }
+        private void ShowAllSensorData()
+        {
+            bothDataList.Items.Clear();
+
+            var nodeA = sensorDataA.First;
+            var nodeB = sensorDataB.First;
+
+            while (nodeA != null && nodeB != null)
+            { 
+                double valueA = nodeA.Value;
+                double valueB = nodeB.Value;
+
+                bothDataList.Items.Add(new { SensorA = valueA, SensorB = valueB });
+
+                nodeA = nodeA.Next;
+                nodeB = nodeB.Next;
+            }
 
 
-        } 
 
+        }
+
+        private void btnLoadData_Click(object sender, RoutedEventArgs e)
+        {
+           // LoadData();
+            ShowAllSensorData();
+        }
     }
 }
