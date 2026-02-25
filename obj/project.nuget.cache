@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "pr9UyorzHog=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\P305532\\Documents\\GitHub\\SatelliteGalileoApp\\SatelliteGalileoApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\P305532\\.nuget\\packages\\extended.wpf.toolkit\\5.0.0\\extended.wpf.toolkit.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

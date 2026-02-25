@@ -31,7 +31,7 @@ namespace SatelliteGalileoApp
         }
 
         private void LoadData(double mu, double sigma)
-        { 
+        {
             Galileo6.ReadData galileo = new Galileo6.ReadData();
             sensorDataA.Clear();
             sensorDataB.Clear();
@@ -55,8 +55,10 @@ namespace SatelliteGalileoApp
             var nodeA = sensorDataA.First;
             var nodeB = sensorDataB.First;
 
-            while (nodeA != null && nodeB != null)
-            { 
+            for (int i = 0; i < 400; i++)
+            {
+
+
                 double valueA = nodeA.Value;
                 double valueB = nodeB.Value;
 
@@ -66,14 +68,17 @@ namespace SatelliteGalileoApp
                 nodeB = nodeB.Next;
             }
 
-
-
         }
 
         private void btnLoadData_Click(object sender, RoutedEventArgs e)
         {
-           // LoadData();
-            ShowAllSensorData();
+            
+                double mu = controlMu.Value ?? 50;
+                double sigma = controlSigma.Value ?? 10;
+                LoadData(mu, sigma);
+                ShowAllSensorData();
+            
+          
         }
     }
 }
