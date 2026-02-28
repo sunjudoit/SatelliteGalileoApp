@@ -21,6 +21,7 @@ namespace SatelliteGalileoApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        // 4.1	Create two data structures LinkedList<T> 
         private LinkedList<double> sensorDataA = new LinkedList<double>();
         private LinkedList<double> sensorDataB = new LinkedList<double>();
 
@@ -29,7 +30,7 @@ namespace SatelliteGalileoApp
         {
             InitializeComponent();
         }
-
+        //4.2 Create a method called “LoadData"
         private void LoadData(double mu, double sigma)
         {
             Galileo6.ReadData galileo = new Galileo6.ReadData();
@@ -48,6 +49,7 @@ namespace SatelliteGalileoApp
             }
 
         }
+        //4.3	Create a custom method called “ShowAllSensorData
         private void ShowAllSensorData()
         {
             bothDataList.Items.Clear();
@@ -69,7 +71,7 @@ namespace SatelliteGalileoApp
             }
 
         }
-
+        //4.4	Create a button and associated click method 
         private void btnLoadData_Click(object sender, RoutedEventArgs e)
         {
             
@@ -79,6 +81,22 @@ namespace SatelliteGalileoApp
                 ShowAllSensorData();
             
           
+        }
+        // 4.5	Create a method called “NumberOfNodes” 
+        private int NumberOfNodes(LinkedList<double> sensorData )
+        {
+            return sensorData.Count;
+        }
+
+        //4.6	Create a method called “DisplayListboxData” 
+        private void DisplayListboxData(LinkedList<double> sensorData, ListBox boxName)
+        {
+            boxName.Items.Clear();
+
+            foreach (double value in sensorData)
+            {
+                boxName.Items.Add(value);
+            }
         }
     }
 }

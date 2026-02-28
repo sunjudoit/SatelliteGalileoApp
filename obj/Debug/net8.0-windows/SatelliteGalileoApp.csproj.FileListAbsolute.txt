@@ -80,3 +80,45 @@ C:\Users\P305532\Documents\GitHub\SatelliteGalileoApp\obj\Debug\net8.0-windows\r
 C:\Users\P305532\Documents\GitHub\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.pdb
 C:\Users\P305532\Documents\GitHub\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.genruntimeconfig.cache
 C:\Users\P305532\Documents\GitHub\SatelliteGalileoApp\obj\Debug\net8.0-windows\ref\SatelliteGalileoApp.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\SatelliteGalileoApp.exe
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\SatelliteGalileoApp.dll.config
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\SatelliteGalileoApp.deps.json
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\SatelliteGalileoApp.runtimeconfig.json
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\SatelliteGalileoApp.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\SatelliteGalileoApp.pdb
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\Xceed.Wpf.AvalonDock.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\Xceed.Wpf.Toolkit.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\de\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\es\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\fr\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\hu\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\it\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\ro\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\ru\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\sv\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\bin\Debug\net8.0-windows\Galileo6.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.csproj.AssemblyReference.cache
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\App.g.cs
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp_MarkupCompile.cache
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp_MarkupCompile.lref
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\MainWindow.baml
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.g.resources
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.AssemblyInfoInputs.cache
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.AssemblyInfo.cs
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.csproj.CoreCompileInputs.cache
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.sourcelink.json
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\Satellit.41CEFC74.Up2Date
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\refint\SatelliteGalileoApp.dll
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.pdb
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\SatelliteGalileoApp.genruntimeconfig.cache
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\ref\SatelliteGalileoApp.dll

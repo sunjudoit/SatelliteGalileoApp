@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\P305532\Documents\GitHub\SatelliteGalileoApp\obj\Debug\net8.0-windows\
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\obj\Debug\net8.0-windows\
 SatelliteGalileoApp
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\P305532\Documents\GitHub\SatelliteGalileoApp\App.xaml
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+D:\TAFE\Programming Diploma2\Github\SatelliteGalileoApp\App.xaml
 11407045341
 
 6537571468
-2041341078590
+2041945088370
 MainWindow.xaml;
 
-False
+True
 

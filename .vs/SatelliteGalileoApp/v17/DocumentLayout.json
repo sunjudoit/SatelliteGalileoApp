@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\P305532\\Documents\\GitHub\\SatelliteGalileoApp\\",
+  "WorkspaceRootPath": "D:\\TAFE\\Programming Diploma2\\Github\\SatelliteGalileoApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FFBBF3C2-F648-47D0-8001-515D2A985BB4}|SatelliteGalileoApp.csproj|c:\\users\\p305532\\documents\\github\\satellitegalileoapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FFBBF3C2-F648-47D0-8001-515D2A985BB4}|SatelliteGalileoApp.csproj|d:\\tafe\\programming diploma2\\github\\satellitegalileoapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FFBBF3C2-F648-47D0-8001-515D2A985BB4}|SatelliteGalileoApp.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFBBF3C2-F648-47D0-8001-515D2A985BB4}|SatelliteGalileoApp.csproj|c:\\users\\p305532\\documents\\github\\satellitegalileoapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{FFBBF3C2-F648-47D0-8001-515D2A985BB4}|SatelliteGalileoApp.csproj|d:\\tafe\\programming diploma2\\github\\satellitegalileoapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{FFBBF3C2-F648-47D0-8001-515D2A985BB4}|SatelliteGalileoApp.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -18,17 +18,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\P305532\\Documents\\GitHub\\SatelliteGalileoApp\\MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\TAFE\\Programming Diploma2\\Github\\SatelliteGalileoApp\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\P305532\\Documents\\GitHub\\SatelliteGalileoApp\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\TAFE\\Programming Diploma2\\Github\\SatelliteGalileoApp\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AQIAABoAAAAAAAAAAAAQwBcAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-25T02:52:09.162Z",
               "EditorCaption": ""
@@ -37,13 +45,12 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\P305532\\Documents\\GitHub\\SatelliteGalileoApp\\MainWindow.xaml",
+              "DocumentMoniker": "D:\\TAFE\\Programming Diploma2\\Github\\SatelliteGalileoApp\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\P305532\\Documents\\GitHub\\SatelliteGalileoApp\\MainWindow.xaml",
+              "ToolTip": "D:\\TAFE\\Programming Diploma2\\Github\\SatelliteGalileoApp\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-25T02:52:04.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-25T02:52:04.031Z"
             }
           ]
         }

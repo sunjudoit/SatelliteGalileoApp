@@ -117,23 +117,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\P305532\\.nuget\\packages\\": {},
+    "C:\\Users\\sj\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\P305532\\Documents\\GitHub\\SatelliteGalileoApp\\SatelliteGalileoApp.csproj",
+      "projectUniqueName": "D:\\TAFE\\Programming Diploma2\\Github\\SatelliteGalileoApp\\SatelliteGalileoApp.csproj",
       "projectName": "SatelliteGalileoApp",
-      "projectPath": "C:\\Users\\P305532\\Documents\\GitHub\\SatelliteGalileoApp\\SatelliteGalileoApp.csproj",
-      "packagesPath": "C:\\Users\\P305532\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\P305532\\Documents\\GitHub\\SatelliteGalileoApp\\obj\\",
+      "projectPath": "D:\\TAFE\\Programming Diploma2\\Github\\SatelliteGalileoApp\\SatelliteGalileoApp.csproj",
+      "packagesPath": "C:\\Users\\sj\\.nuget\\packages\\",
+      "outputPath": "D:\\TAFE\\Programming Diploma2\\Github\\SatelliteGalileoApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\P305532\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sj\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -142,6 +142,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -159,8 +160,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "10.0.100"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -190,7 +190,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

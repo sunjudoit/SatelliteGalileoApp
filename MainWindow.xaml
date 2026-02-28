@@ -37,7 +37,7 @@
         <TextBox x:Name="timeRecursiveSearchA" HorizontalAlignment="Left" Height="23" Margin="306,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
         <Label Content="SensorA" HorizontalAlignment="Left" Height="38" Margin="321,10,0,0" VerticalAlignment="Top" Width="134" FontSize="22"/>
         <Viewbox HorizontalAlignment="Left" Height="323" Margin="396,53,0,0" VerticalAlignment="Top" Width="122"/>
-        <TextBox x:Name="sensorAList" HorizontalAlignment="Left" Height="318" Margin="375,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108"/>
+        <TextBox x:Name="lBoxSensorA" HorizontalAlignment="Left" Height="318" Margin="375,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108"/>
         <Label Content="SensorB" HorizontalAlignment="Left" Height="38" Margin="596,10,0,0" VerticalAlignment="Top" Width="134" FontSize="22"/>
         <Label Content="Selection Sort" HorizontalAlignment="Left" Height="29" Margin="518,52,0,0" VerticalAlignment="Top" Width="94"/>
         <Label Content="Insertion Sort" HorizontalAlignment="Left" Height="30" Margin="520,116,0,0" VerticalAlignment="Top" Width="94"/>
@@ -53,7 +53,7 @@
         <Button x:Name="btnRecursiveSearchB" Content="Button" HorizontalAlignment="Left" Height="23" Margin="527,353,0,0" VerticalAlignment="Top" Width="44"/>
         <TextBox x:Name="timeIterativeSearchB" HorizontalAlignment="Left" Height="23" Margin="578,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="46"/>
         <TextBox x:Name="timeRecursiveSearchB" HorizontalAlignment="Left" Height="23" Margin="578,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="46"/>
-        <ListBox x:Name="sensorBList" HorizontalAlignment="Left" Height="321" Margin="647,63,0,0" VerticalAlignment="Top" Width="106" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ListBox x:Name="lBoxSensorB" HorizontalAlignment="Left" Height="321" Margin="647,63,0,0" VerticalAlignment="Top" Width="106" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         <Label Content="Sigma" HorizontalAlignment="Left" Height="28" Margin="45,34,0,0" VerticalAlignment="Top" Width="46"/>
         <Label Content="Mu" HorizontalAlignment="Left" Height="28" Margin="159,34,0,0" VerticalAlignment="Top" Width="46"/>
 
