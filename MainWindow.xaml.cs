@@ -79,8 +79,11 @@ namespace SatelliteGalileoApp
                 double sigma = controlSigma.Value ?? 10;
                 LoadData(mu, sigma);
                 ShowAllSensorData();
-            
-          
+                DisplayListboxData(sensorDataA, lBoxSensorA);
+                DisplayListboxData(sensorDataB, lBoxSensorB);
+
+
+
         }
         // 4.5	Create a method called “NumberOfNodes” 
         private int NumberOfNodes(LinkedList<double> sensorData )
@@ -97,6 +100,144 @@ namespace SatelliteGalileoApp
             {
                 boxName.Items.Add(value);
             }
+        }
+        //4.7	Create a method called “SelectionSort” 
+        private bool SelectionSort(LinkedList<double> sensorData)
+        { 
+            int maxNode = NumberOfNodes(sensorData);
+
+            for (int i = 0; i < maxNode -1 ; i++)
+            {
+                int min = i;
+
+                for (int j = i+1; j < maxNode; j++)
+                {
+                    if (sensorData.ElementAt(j) < sensorData.ElementAt(min))
+                    {
+                        min = j;
+                    }
+                }
+
+                LinkedListNode<double> currentMin = sensorData.Find(sensorData.ElementAt(min));
+                LinkedListNode<double> currentI = sensorData.Find(sensorData.ElementAt(i));
+
+                var tempMin = currentMin.Value;
+                currentMin.Value = currentI.Value;
+                currentI.Value = tempMin;
+            }
+
+            return true;
+        }
+        //4.8	Create a method called “InsertionSort” 
+        private bool InsertionSort(LinkedList<double> sensorData)
+        {
+            int maxNode = NumberOfNodes(sensorData);
+            for (int i = 0; i < maxNode -1 ; i++)
+            {
+                for (int j = i + 1; j > 0; j--)
+                {
+                    if (sensorData.ElementAt(j - 1) > sensorData.ElementAt(j))
+                    {
+                        LinkedListNode<double> currentJ = sensorData.Find(sensorData.ElementAt(j));
+                        LinkedListNode<double> previousJ = sensorData.Find(sensorData.ElementAt(j - 1));
+
+                       // null check?
+
+                        var tempValue = currentJ.Value;
+                        currentJ.Value = previousJ.Value;
+                        previousJ.Value = tempValue;
+                    }
+                }
+            }
+            return true;
+        }
+        // 4.9	Create a method called “BinarySearchIterative” 
+        private int BinarySearchIterative(LinkedList<double> sensorData, int target , int Min , int max)
+        {
+            while (Min <= max - 1)
+            {
+                int mid = (Min + max) / 2;
+
+                if (target ==(int)sensorData.ElementAt(mid))
+                {
+                    return mid;
+                }
+                else if (target < sensorData.ElementAt(mid))
+                {
+                    max = mid - 1;
+                }
+                else 
+                {
+                    Min = mid + 1;
+                }
+            }
+            return -1;
+        }
+        //4.10	Create a method called “BinarySearchRecursive” 
+        private int BinarySearchRecursive(LinkedList<double> sensorData, int target, int Min, int max)
+        {
+            if (Min <= max - 1)
+            {
+                int mid = (Min + max) / 2;
+                if (target == (int)sensorData.ElementAt(mid))
+                {
+                    return mid;
+                }
+                else if (target < sensorData.ElementAt(mid))
+                {
+                    return BinarySearchRecursive(sensorData, target, Min, mid - 1);
+                }
+                else
+                {
+                    return BinarySearchRecursive(sensorData, target, mid + 1, max);
+                }
+
+            }
+                
+            return -1;
+
+        }
+
+
+        private void btnSelectionSortA_Click(object sender, RoutedEventArgs e)
+        {
+            SelectionSort(sensorDataA);
+            ShowAllSensorData();
+            DisplayListboxData(sensorDataA, lBoxSensorA);
+        }
+
+        private void btnSelectionSortB_Click(object sender, RoutedEventArgs e)
+        {
+            SelectionSort(sensorDataB);
+            ShowAllSensorData();
+            DisplayListboxData(sensorDataB, lBoxSensorB);
+        }
+
+        private void btnInsertionSortA_Click(object sender, RoutedEventArgs e)
+        {
+            InsertionSort(sensorDataA);
+            ShowAllSensorData();
+            DisplayListboxData(sensorDataA, lBoxSensorA);
+        }
+
+        private void btnInsertionSortB_Click(object sender, RoutedEventArgs e)
+        {
+            InsertionSort(sensorDataB);
+            ShowAllSensorData();
+            DisplayListboxData(sensorDataB, lBoxSensorB);
+        }
+
+        private void btnIterativeSearchA_Click(object sender, RoutedEventArgs e)
+        {
+            int target = BinarySearchIterative(sensorDataA, 60, 0, 400);
+            MessageBox.Show($" result{target}");
+        }
+
+        private void btnRecursiveSearchA_Click(object sender, RoutedEventArgs e)
+        {
+            int target = BinarySearchRecursive(sensorDataA, 60, 0, 400);
+            MessageBox.Show( $" result{target}");
+
         }
     }
 }
