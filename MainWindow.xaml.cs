@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace SatelliteGalileoApp
 {
@@ -152,11 +153,11 @@ namespace SatelliteGalileoApp
             return true;
         }
         // 4.9	Create a method called “BinarySearchIterative” 
-        private int BinarySearchIterative(LinkedList<double> sensorData, int target , int Min , int max)
+        private int BinarySearchIterative(LinkedList<double> sensorData, int target , int min , int max)
         {
-            while (Min <= max - 1)
+            while (min <= max - 1)
             {
-                int mid = (Min + max) / 2;
+                int mid = (min + max) / 2;
 
                 if (target ==(int)sensorData.ElementAt(mid))
                 {
@@ -168,24 +169,24 @@ namespace SatelliteGalileoApp
                 }
                 else 
                 {
-                    Min = mid + 1;
+                    min = mid + 1;
                 }
             }
             return -1;
         }
         //4.10	Create a method called “BinarySearchRecursive” 
-        private int BinarySearchRecursive(LinkedList<double> sensorData, int target, int Min, int max)
+        private int BinarySearchRecursive(LinkedList<double> sensorData, int target, int min, int max)
         {
-            if (Min <= max - 1)
+            if (min <= max - 1)
             {
-                int mid = (Min + max) / 2;
+                int mid = (min + max) / 2;
                 if (target == (int)sensorData.ElementAt(mid))
                 {
                     return mid;
                 }
                 else if (target < sensorData.ElementAt(mid))
                 {
-                    return BinarySearchRecursive(sensorData, target, Min, mid - 1);
+                    return BinarySearchRecursive(sensorData, target, min, mid - 1);
                 }
                 else
                 {
@@ -201,7 +202,10 @@ namespace SatelliteGalileoApp
 
         private void btnSelectionSortA_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch watch = Stopwatch.StartNew();
             SelectionSort(sensorDataA);
+            watch.Stop();
+
             ShowAllSensorData();
             DisplayListboxData(sensorDataA, lBoxSensorA);
         }
@@ -227,17 +231,164 @@ namespace SatelliteGalileoApp
             DisplayListboxData(sensorDataB, lBoxSensorB);
         }
 
+        //4.11	Create Search button click methods 
         private void btnIterativeSearchA_Click(object sender, RoutedEventArgs e)
         {
-            int target = BinarySearchIterative(sensorDataA, 60, 0, 400);
-            MessageBox.Show($" result{target}");
+            try
+            {
+
+                if (int.TryParse(inputTargetA.Text, out int target))
+                {
+                    InsertionSort(sensorDataA);
+                    DisplayListboxData(sensorDataA, lBoxSensorA);
+
+                    Stopwatch watch = Stopwatch.StartNew();
+                    int resultSearch = BinarySearchIterative(sensorDataA, target, 0, NumberOfNodes(sensorDataA));
+                    watch.Stop();
+
+                    timeIterativeSearchA.Text = watch.ElapsedTicks.ToString();
+
+                    if (resultSearch == -1)
+                    {
+                        MessageBox.Show("Your target is not found");
+                    }
+                    else 
+                    {
+                        HighlightTarget(lBoxSensorA, target, resultSearch);
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message);
+            }
+
+           
         }
 
         private void btnRecursiveSearchA_Click(object sender, RoutedEventArgs e)
         {
-            int target = BinarySearchRecursive(sensorDataA, 60, 0, 400);
-            MessageBox.Show( $" result{target}");
+            try
+            {
+
+                if (int.TryParse(inputTargetA.Text, out int target))
+                {
+                    InsertionSort(sensorDataA);
+                    DisplayListboxData(sensorDataA, lBoxSensorA);
+
+                    Stopwatch watch = Stopwatch.StartNew();
+                    int resultSearch = BinarySearchRecursive(sensorDataA, target, 0, NumberOfNodes(sensorDataA));
+                    watch.Stop();
+
+                    timeRecursiveSearchA.Text = watch.ElapsedTicks.ToString();
+                    if (resultSearch == -1)
+                    {
+                        MessageBox.Show("Your target is not found");
+                    }
+                    else
+                    {
+                        HighlightTarget(lBoxSensorA, target, resultSearch);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message);
+            }
+
 
         }
+
+        private void btnIterativeSearchB_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                if (int.TryParse(inputTargetB.Text, out int target))
+                {
+                    InsertionSort(sensorDataB);
+                    DisplayListboxData(sensorDataB, lBoxSensorB);
+
+                    Stopwatch watch = Stopwatch.StartNew();
+                    int resultSearch = BinarySearchIterative(sensorDataB, target, 0, NumberOfNodes(sensorDataB));
+                    watch.Stop();
+
+                    timeIterativeSearchB.Text = watch.ElapsedTicks.ToString();
+
+                    if (resultSearch == -1)
+                    {
+                        MessageBox.Show("Your target is not found");
+                    }
+                    else
+                    {
+                        HighlightTarget(lBoxSensorB, target, resultSearch);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message);
+            }
+        }
+
+        private void btnRecursiveSearchB_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                if (int.TryParse(inputTargetB.Text, out int target))
+                {
+                    InsertionSort(sensorDataB);
+                    DisplayListboxData(sensorDataB, lBoxSensorB);
+
+                    Stopwatch watch = Stopwatch.StartNew();
+                    int resultSearch = BinarySearchRecursive(sensorDataB, target, 0, NumberOfNodes(sensorDataB));
+                    watch.Stop();
+
+                    timeRecursiveSearchB.Text = watch.ElapsedTicks.ToString();
+                    if (resultSearch == -1)
+                    {
+                        MessageBox.Show("Your target is not found");
+                    }
+                    else
+                    {
+                        HighlightTarget(lBoxSensorB, target, resultSearch);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message);
+            }
+        }
+
+        private void HighlightTarget(ListBox boxName , int target, int resultSearch)
+        {
+            boxName.SelectionMode = SelectionMode.Multiple;
+            boxName.SelectedItems.Clear();
+            
+
+            foreach (var item in boxName.Items)
+            {
+                if (double.TryParse(item.ToString(), out double value))
+                {
+                    if ((int)value == target)
+                    { 
+                        boxName.SelectedItems.Add(item);
+                    }    
+                }
+            }
+            //scroll
+            if (resultSearch >= 0 && resultSearch < boxName.Items.Count)
+            {
+                boxName.ScrollIntoView(boxName.Items[resultSearch]);
+            }
+
+           
+            
+        }
     }
+    
 }
