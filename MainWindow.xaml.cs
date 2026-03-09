@@ -32,7 +32,12 @@ namespace SatelliteGalileoApp
         {
             InitializeComponent();
         }
-        //4.2 Create a method called “LoadData" for data loading
+        
+        /// <summary>
+        /// 4.2 Loads sensor data from the Galileo DLL and stores it in the linked lists.
+        /// </summary>
+        /// <param name="mu">Mean value used for generating sensor data</param>
+        /// <param name="sigma">Standard deviation used for generating sensor data</param>
         private void LoadData(double mu, double sigma)
         {
             Galileo6.ReadData galileo = new Galileo6.ReadData();
@@ -51,7 +56,10 @@ namespace SatelliteGalileoApp
             }
 
         }
-        //4.3	Create a custom method called “ShowAllSensorData"
+        
+        /// <summary>
+        /// 4.3 Displays all sensor data from both linked lists in the ListView.
+        /// </summary>
         private void ShowAllSensorData()
         {
             bothDataList.Items.Clear();
@@ -90,13 +98,22 @@ namespace SatelliteGalileoApp
 
 
         }
-        // 4.5	Create a method called “NumberOfNodes” 
+        
+        /// <summary>
+        /// 4.5 the number of elements in the linked list.
+        /// </summary>
+        /// <param name="sensorData">LinkedList containing sensor values</param>
+        /// <returns>Number of nodes in the list</returns>
         private int NumberOfNodes(LinkedList<double> sensorData )
         {
             return sensorData.Count;
         }
 
-        //4.6	Create a method called “DisplayListboxData” 
+        /// <summary>
+        /// 4.6 Displays the values from the linked list in the each ListBox.
+        /// </summary>
+        /// <param name="sensorData">LinkedList containing sensor values</param>
+        /// <param name="boxName">ListBox name</param>
         private void DisplayListboxData(LinkedList<double> sensorData, ListBox boxName)
         {
             boxName.Items.Clear();
@@ -106,7 +123,12 @@ namespace SatelliteGalileoApp
                 boxName.Items.Add(value);
             }
         }
-        //4.7	Create a method called “SelectionSort” 
+        
+        /// <summary>
+        /// 4.7 Sorts the linked list using the Selection Sort algorithm.
+        /// </summary>
+        /// <param name="sensorData">LinkedList that will be sorted</param>
+        /// <returns>Returns true when sorting is completed</returns>
         private bool SelectionSort(LinkedList<double> sensorData)
         { 
             int maxNode = NumberOfNodes(sensorData);
@@ -155,7 +177,12 @@ namespace SatelliteGalileoApp
 
             return true;
         }
-        //4.8	Create a method called “InsertionSort” 
+      
+        /// <summary>
+        /// 4.8 Sorts the linked list using the Insertion Sort algorithm.
+        /// </summary>
+        /// <param name="sensorData">LinkedList that will be sorted</param>
+        /// <returns>Returns true when sorting is completed</returns>
         private bool InsertionSort(LinkedList<double> sensorData)
         {
             int maxNode = NumberOfNodes(sensorData);
@@ -198,62 +225,16 @@ namespace SatelliteGalileoApp
             }
             return true;
         }
-        // 4.9	Create a method called “BinarySearchIterative” 
-        private int BinarySearchIterative(LinkedList<double> sensorData, int target , int min , int max)
-        {
-            while (min <= max - 1)
-            {
-                int mid = (min + max) / 2;
-
-                if (target ==(int)sensorData.ElementAt(mid))
-                {
-                    return mid;
-                }
-                else if (target < sensorData.ElementAt(mid))
-                {
-                    max = mid - 1;
-                }
-                else 
-                {
-                    min = mid + 1;
-                }
-            }
-            return min;
-        }
-        //4.10	Create a method called “BinarySearchRecursive” 
-        private int BinarySearchRecursive(LinkedList<double> sensorData, int target, int min, int max)
-        {
-            if (min <= max - 1)
-            {
-                int mid = (min + max) / 2;
-                if (target == (int)sensorData.ElementAt(mid))
-                {
-                    return mid;
-                }
-                else if (target < sensorData.ElementAt(mid))
-                {
-                    return BinarySearchRecursive(sensorData, target, min, mid - 1);
-                }
-                else
-                {
-                    return BinarySearchRecursive(sensorData, target, mid + 1, max);
-                }
-
-            }
-                
-            return min;
-
-        }
 
         //4.12	Create sort button click methods 
         private void btnSelectionSortA_Click(object sender, RoutedEventArgs e)
         {
-            
+
             Stopwatch watch = Stopwatch.StartNew();
             SelectionSort(sensorDataA);
             watch.Stop();
 
-            timeSelectionSortA.Text = watch.ElapsedMilliseconds.ToString(); 
+            timeSelectionSortA.Text = watch.ElapsedMilliseconds.ToString();
 
             ShowAllSensorData();
             DisplayListboxData(sensorDataA, lBoxSensorA);
@@ -293,6 +274,68 @@ namespace SatelliteGalileoApp
 
             ShowAllSensorData();
             DisplayListboxData(sensorDataB, lBoxSensorB);
+        }
+
+        /// <summary>
+        /// 4.9 Searches for the target value using an iterative binary search.
+        /// </summary>
+        /// <param name="sensorData">Sorted linked list</param>
+        /// <param name="target">Value to search for</param>
+        /// <param name="min">Starting index</param>
+        /// <param name="max">Ending index</param>
+        /// <returns>Index position where the value is found</returns>
+        private int BinarySearchIterative(LinkedList<double> sensorData, int target , int min , int max)
+        {
+            while (min <= max - 1)
+            {
+                int mid = (min + max) / 2;
+
+                if (target ==(int)sensorData.ElementAt(mid))
+                {
+                    return mid;
+                }
+                else if (target < sensorData.ElementAt(mid))
+                {
+                    max = mid - 1;
+                }
+                else 
+                {
+                    min = mid + 1;
+                }
+            }
+            return min;
+        }
+        
+        /// <summary>
+        /// 4.10 Searches for the target value using recursive binary search.
+        /// </summary>
+        /// <param name="sensorData">Sorted linked list</param>
+        /// <param name="target">Value to search for</param>
+        /// <param name="min">Starting index</param>
+        /// <param name="max">Ending index</param>
+        /// <returns>Index position where the value is found</returns>
+        private int BinarySearchRecursive(LinkedList<double> sensorData, int target, int min, int max)
+        {
+            if (min <= max - 1)
+            {
+                int mid = (min + max) / 2;
+                if (target == (int)sensorData.ElementAt(mid))
+                {
+                    return mid;
+                }
+                else if (target < sensorData.ElementAt(mid))
+                {
+                    return BinarySearchRecursive(sensorData, target, min, mid - 1);
+                }
+                else
+                {
+                    return BinarySearchRecursive(sensorData, target, mid + 1, max);
+                }
+
+            }
+                
+            return min;
+
         }
 
         //4.11	Create search button click methods 
@@ -464,7 +507,12 @@ namespace SatelliteGalileoApp
                 MessageBox.Show("Error " + ex.Message);
             }
         }
-        //4.11 Check Data sorted before searching
+        
+        /// <summary>
+        /// 4.11 Checks whether the linked list is sorted before searching.
+        /// </summary>
+        /// <param name="sensorData">LinkedList to check</param>
+        /// <returns>True if sorted, otherwise false</returns>
         private bool IsSorted(LinkedList<double> sensorData)
         {
             int numberOfNodes = NumberOfNodes(sensorData);
@@ -479,7 +527,12 @@ namespace SatelliteGalileoApp
             return true;
         }
 
-        // 4.9,10 found data highlighting
+        /// <summary>
+        /// 4.9,10 Highlights all values in the ListBox that match the target integer.
+        /// </summary>
+        /// <param name="boxName">ListBox name</param>
+        /// <param name="target">Target value to highlight</param>
+        /// <param name="resultSearch">Index returned from the search</param>
         private void HighlightTarget(ListBox boxName , int target, int resultSearch)
         {
             boxName.SelectionMode = SelectionMode.Multiple;
@@ -503,21 +556,28 @@ namespace SatelliteGalileoApp
             }
 
         }
-        //4.14 only numeric integer values can be entered
+        
+        /// <summary>
+        /// 4.14 Allows only numeric integer input in the target textbox.
+        /// </summary>
         private void OnlyInteger(object sender, TextCompositionEventArgs input)
         {
             bool isNumber = char.IsDigit(input.Text, input.Text.Length - 1);
             input.Handled = !isNumber;
         }
 
-        // Clear target input boxes
+        /// <summary>
+        /// Clears the target input text boxes.
+        /// </summary>
         private void ClearTarget()
         {
            
             inputTargetA.Clear();
             inputTargetB.Clear();
         }
-        // Clear all time result text boxes
+        /// <summary>
+        /// Clears all time result text boxes.
+        /// </summary>
         private void ClearTime()
         {
             
@@ -531,10 +591,12 @@ namespace SatelliteGalileoApp
             timeRecursiveSearchB.Text = "";
         }
 
-        // Clear highlighted items in both list boxes
+        /// <summary>
+        /// Removes highlighted items from ListBoxes.
+        /// </summary>
         private void ClearHighlight()
         {
-            //highlight
+           
             lBoxSensorA.UnselectAll();
             lBoxSensorB.UnselectAll();
 
