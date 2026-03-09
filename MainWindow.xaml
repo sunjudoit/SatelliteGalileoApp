@@ -28,7 +28,7 @@
         <Label Content="Selection Sort" HorizontalAlignment="Left" Height="29" Margin="254,48,0,0" VerticalAlignment="Top" Width="94"/>
         <Label Content="Insertion Sort" HorizontalAlignment="Left" Height="30" Margin="254,113,0,0" VerticalAlignment="Top" Width="94"/>
         <Label Content="Target" HorizontalAlignment="Left" Height="27" Margin="254,190,0,0" VerticalAlignment="Top" Width="83"/>
-        <TextBox x:Name="inputTargetA" HorizontalAlignment="Left" Height="21" Margin="254,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94"/>
+        <TextBox x:Name="inputTargetA" HorizontalAlignment="Left" Height="21" Margin="254,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" PreviewTextInput="OnlyInteger"/>
         <Label Content="Search Iterative" HorizontalAlignment="Left" Height="26" Margin="253,238,0,0" VerticalAlignment="Top" Width="96"/>
         <Button x:Name="btnIterativeSearchA" Content="Search" HorizontalAlignment="Left" Height="24" Margin="253,264,0,0" VerticalAlignment="Top" Width="95" Click="btnIterativeSearchA_Click"/>
         <TextBox x:Name="timeIterativeSearchA" HorizontalAlignment="Left" Height="23" Margin="253,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
@@ -48,7 +48,7 @@
         <Button x:Name="btnInsertionSortB" Content="Sort" HorizontalAlignment="Left" Height="23" Margin="523,140,0,0" VerticalAlignment="Top" Width="96" Click="btnInsertionSortB_Click"/>
         <TextBox x:Name="timeSelectionSortB" HorizontalAlignment="Left" Height="20" Margin="523,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
         <TextBox x:Name="timeInsertionSortB" HorizontalAlignment="Left" Height="24" Margin="523,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>
-        <TextBox x:Name="inputTargetB" HorizontalAlignment="Left" Height="21" Margin="523,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97"/>
+        <TextBox x:Name="inputTargetB" HorizontalAlignment="Left" Height="21" Margin="523,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" PreviewTextInput="OnlyInteger"/>
         <Button x:Name="btnIterativeSearchB" Content="Search" HorizontalAlignment="Left" Height="23" Margin="523,265,0,0" VerticalAlignment="Top" Width="96" Click="btnIterativeSearchB_Click"/>
         <Button x:Name="btnRecursiveSearchB" Content="Search" HorizontalAlignment="Left" Height="23" Margin="523,342,0,0" VerticalAlignment="Top" Width="97" Click="btnRecursiveSearchB_Click"/>
         <TextBox x:Name="timeIterativeSearchB" HorizontalAlignment="Left" Height="23" Margin="523,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>

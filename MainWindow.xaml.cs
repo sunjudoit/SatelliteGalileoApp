@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace SatelliteGalileoApp
 {
@@ -22,7 +23,7 @@ namespace SatelliteGalileoApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        // 4.1	Create two data structures LinkedList<T> 
+        // 4.1	Two data structures LinkedList<T> 
         private LinkedList<double> sensorDataA = new LinkedList<double>();
         private LinkedList<double> sensorDataB = new LinkedList<double>();
 
@@ -31,7 +32,7 @@ namespace SatelliteGalileoApp
         {
             InitializeComponent();
         }
-        //4.2 Create a method called “LoadData"
+        //4.2 Create a method called “LoadData" for data loading
         private void LoadData(double mu, double sigma)
         {
             Galileo6.ReadData galileo = new Galileo6.ReadData();
@@ -50,7 +51,7 @@ namespace SatelliteGalileoApp
             }
 
         }
-        //4.3	Create a custom method called “ShowAllSensorData
+        //4.3	Create a custom method called “ShowAllSensorData"
         private void ShowAllSensorData()
         {
             bothDataList.Items.Clear();
@@ -75,13 +76,16 @@ namespace SatelliteGalileoApp
         //4.4	Create a button and associated click method 
         private void btnLoadData_Click(object sender, RoutedEventArgs e)
         {
-            
-                double mu = controlMu.Value ?? 50;
-                double sigma = controlSigma.Value ?? 10;
-                LoadData(mu, sigma);
-                ShowAllSensorData();
-                DisplayListboxData(sensorDataA, lBoxSensorA);
-                DisplayListboxData(sensorDataB, lBoxSensorB);
+            ClearTarget();
+            ClearTime();
+
+
+            double mu = controlMu.Value ?? 50;
+            double sigma = controlSigma.Value ?? 10;
+            LoadData(mu, sigma);
+            ShowAllSensorData();
+            DisplayListboxData(sensorDataA, lBoxSensorA);
+            DisplayListboxData(sensorDataB, lBoxSensorB);
 
 
 
@@ -122,6 +126,28 @@ namespace SatelliteGalileoApp
                 LinkedListNode<double> currentMin = sensorData.Find(sensorData.ElementAt(min));
                 LinkedListNode<double> currentI = sensorData.Find(sensorData.ElementAt(i));
 
+                int index = 0;
+                LinkedListNode<double> correctionNode = sensorData.First;
+
+                while (correctionNode != null)
+                {
+                    if (index == min )
+                    {
+                        currentMin = correctionNode;
+                    }
+                    if (index == i)
+                    {
+                        currentI = correctionNode;
+                    }
+                    
+                    index++;
+                    correctionNode = correctionNode.Next;
+                }
+                if (currentMin == null || currentI == null)
+                {
+                    return false;
+                }
+
                 var tempMin = currentMin.Value;
                 currentMin.Value = currentI.Value;
                 currentI.Value = tempMin;
@@ -142,7 +168,27 @@ namespace SatelliteGalileoApp
                         LinkedListNode<double> currentJ = sensorData.Find(sensorData.ElementAt(j));
                         LinkedListNode<double> previousJ = sensorData.Find(sensorData.ElementAt(j - 1));
 
-                       // null check?
+                        int index = 0;
+                        LinkedListNode<double> correctionNode = sensorData.First;
+
+                        while (correctionNode != null)
+                        {
+                            if (index == j)
+                            {
+                                currentJ = correctionNode;
+                            }
+                            if (index == j - 1)
+                            {
+                                previousJ = correctionNode;
+                            }
+                          
+                            index++;
+                            correctionNode = correctionNode.Next;
+                        }
+                        if (currentJ == null || previousJ == null)
+                        {
+                            return false;
+                        }
 
                         var tempValue = currentJ.Value;
                         currentJ.Value = previousJ.Value;
@@ -172,7 +218,7 @@ namespace SatelliteGalileoApp
                     min = mid + 1;
                 }
             }
-            return -1;
+            return min;
         }
         //4.10	Create a method called “BinarySearchRecursive” 
         private int BinarySearchRecursive(LinkedList<double> sensorData, int target, int min, int max)
@@ -195,16 +241,19 @@ namespace SatelliteGalileoApp
 
             }
                 
-            return -1;
+            return min;
 
         }
 
-
+        //4.12	Create sort button click methods 
         private void btnSelectionSortA_Click(object sender, RoutedEventArgs e)
         {
+            
             Stopwatch watch = Stopwatch.StartNew();
             SelectionSort(sensorDataA);
             watch.Stop();
+
+            timeSelectionSortA.Text = watch.ElapsedMilliseconds.ToString(); 
 
             ShowAllSensorData();
             DisplayListboxData(sensorDataA, lBoxSensorA);
@@ -212,34 +261,57 @@ namespace SatelliteGalileoApp
 
         private void btnSelectionSortB_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch watch = Stopwatch.StartNew();
             SelectionSort(sensorDataB);
+            watch.Stop();
+
+            timeSelectionSortB.Text = watch.ElapsedMilliseconds.ToString();
+
             ShowAllSensorData();
             DisplayListboxData(sensorDataB, lBoxSensorB);
         }
 
         private void btnInsertionSortA_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch watch = Stopwatch.StartNew();
             InsertionSort(sensorDataA);
+            watch.Stop();
+
+            timeInsertionSortA.Text = watch.ElapsedMilliseconds.ToString();
+
             ShowAllSensorData();
             DisplayListboxData(sensorDataA, lBoxSensorA);
         }
 
         private void btnInsertionSortB_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch watch = Stopwatch.StartNew();
             InsertionSort(sensorDataB);
+            watch.Stop();
+
+            timeInsertionSortB.Text = watch.ElapsedMilliseconds.ToString();
+
             ShowAllSensorData();
             DisplayListboxData(sensorDataB, lBoxSensorB);
         }
 
-        //4.11	Create Search button click methods 
+        //4.11	Create search button click methods 
         private void btnIterativeSearchA_Click(object sender, RoutedEventArgs e)
         {
+            ClearTime();
+            ClearHighlight();
             try
             {
 
                 if (int.TryParse(inputTargetA.Text, out int target))
                 {
-                    InsertionSort(sensorDataA);
+                    if (!IsSorted(sensorDataA))
+                    {
+                        MessageBox.Show("Data is not sorted. Sorting will be performed before searching.");
+
+                        InsertionSort(sensorDataA);
+                    }
+                    
                     DisplayListboxData(sensorDataA, lBoxSensorA);
 
                     Stopwatch watch = Stopwatch.StartNew();
@@ -248,13 +320,13 @@ namespace SatelliteGalileoApp
 
                     timeIterativeSearchA.Text = watch.ElapsedTicks.ToString();
 
-                    if (resultSearch == -1)
+                    if (resultSearch < sensorDataA.Count && (int)sensorDataA.ElementAt(resultSearch) == target)
                     {
-                        MessageBox.Show("Your target is not found");
+                        HighlightTarget(lBoxSensorA, target, resultSearch);
                     }
                     else 
                     {
-                        HighlightTarget(lBoxSensorA, target, resultSearch);
+                        MessageBox.Show("Your target is not found");
                     }
                    
                 }
@@ -269,12 +341,21 @@ namespace SatelliteGalileoApp
 
         private void btnRecursiveSearchA_Click(object sender, RoutedEventArgs e)
         {
+            ClearTime();
+            ClearHighlight();
+
             try
             {
 
                 if (int.TryParse(inputTargetA.Text, out int target))
                 {
-                    InsertionSort(sensorDataA);
+                    if (!IsSorted(sensorDataA))
+                    {
+                        MessageBox.Show("Data is not sorted. Sorting will be performed before searching.");
+
+                        InsertionSort(sensorDataA);
+                    }
+
                     DisplayListboxData(sensorDataA, lBoxSensorA);
 
                     Stopwatch watch = Stopwatch.StartNew();
@@ -282,13 +363,14 @@ namespace SatelliteGalileoApp
                     watch.Stop();
 
                     timeRecursiveSearchA.Text = watch.ElapsedTicks.ToString();
-                    if (resultSearch == -1)
+
+                    if (resultSearch < sensorDataA.Count && (int)sensorDataA.ElementAt(resultSearch) == target)
                     {
-                        MessageBox.Show("Your target is not found");
+                        HighlightTarget(lBoxSensorA, target, resultSearch);
                     }
                     else
                     {
-                        HighlightTarget(lBoxSensorA, target, resultSearch);
+                        MessageBox.Show("Your target is not found");
                     }
                 }
             }
@@ -302,12 +384,21 @@ namespace SatelliteGalileoApp
 
         private void btnIterativeSearchB_Click(object sender, RoutedEventArgs e)
         {
+            ClearTime();
+            ClearHighlight();
+
             try
             {
 
                 if (int.TryParse(inputTargetB.Text, out int target))
                 {
-                    InsertionSort(sensorDataB);
+                    if (!IsSorted(sensorDataB))
+                    {
+                        MessageBox.Show("Data is not sorted. Sorting will be performed before searching.");
+
+                        InsertionSort(sensorDataB);
+                    }
+
                     DisplayListboxData(sensorDataB, lBoxSensorB);
 
                     Stopwatch watch = Stopwatch.StartNew();
@@ -316,13 +407,13 @@ namespace SatelliteGalileoApp
 
                     timeIterativeSearchB.Text = watch.ElapsedTicks.ToString();
 
-                    if (resultSearch == -1)
+                    if (resultSearch < sensorDataB.Count && (int)sensorDataB.ElementAt(resultSearch) == target)
                     {
-                        MessageBox.Show("Your target is not found");
+                        HighlightTarget(lBoxSensorB, target, resultSearch);
                     }
                     else
                     {
-                        HighlightTarget(lBoxSensorB, target, resultSearch);
+                        MessageBox.Show("Your target is not found");
                     }
 
                 }
@@ -335,12 +426,21 @@ namespace SatelliteGalileoApp
 
         private void btnRecursiveSearchB_Click(object sender, RoutedEventArgs e)
         {
+            ClearTime();
+            ClearHighlight();
+
             try
             {
 
                 if (int.TryParse(inputTargetB.Text, out int target))
                 {
-                    InsertionSort(sensorDataB);
+                    if (!IsSorted(sensorDataB))
+                    {
+                        MessageBox.Show("Data is not sorted. Sorting will be performed before searching.");
+
+                        InsertionSort(sensorDataB);
+                    }
+
                     DisplayListboxData(sensorDataB, lBoxSensorB);
 
                     Stopwatch watch = Stopwatch.StartNew();
@@ -348,13 +448,14 @@ namespace SatelliteGalileoApp
                     watch.Stop();
 
                     timeRecursiveSearchB.Text = watch.ElapsedTicks.ToString();
-                    if (resultSearch == -1)
+
+                    if (resultSearch < sensorDataB.Count && (int)sensorDataB.ElementAt(resultSearch) == target)
                     {
-                        MessageBox.Show("Your target is not found");
+                        HighlightTarget(lBoxSensorB, target, resultSearch);
                     }
                     else
                     {
-                        HighlightTarget(lBoxSensorB, target, resultSearch);
+                        MessageBox.Show("Your target is not found");
                     }
                 }
             }
@@ -363,7 +464,22 @@ namespace SatelliteGalileoApp
                 MessageBox.Show("Error " + ex.Message);
             }
         }
+        //4.11 Check Data sorted before searching
+        private bool IsSorted(LinkedList<double> sensorData)
+        {
+            int numberOfNodes = NumberOfNodes(sensorData);
 
+            for (int i = 0; i < numberOfNodes - 1; i++)
+            {
+                if (sensorData.ElementAt(i) > sensorData.ElementAt(i + 1))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // 4.9,10 found data highlighting
         private void HighlightTarget(ListBox boxName , int target, int resultSearch)
         {
             boxName.SelectionMode = SelectionMode.Multiple;
@@ -386,8 +502,42 @@ namespace SatelliteGalileoApp
                 boxName.ScrollIntoView(boxName.Items[resultSearch]);
             }
 
+        }
+        //4.14 only numeric integer values can be entered
+        private void OnlyInteger(object sender, TextCompositionEventArgs input)
+        {
+            bool isNumber = char.IsDigit(input.Text, input.Text.Length - 1);
+            input.Handled = !isNumber;
+        }
+
+        // Clear target input boxes
+        private void ClearTarget()
+        {
            
+            inputTargetA.Clear();
+            inputTargetB.Clear();
+        }
+        // Clear all time result text boxes
+        private void ClearTime()
+        {
             
+            timeSelectionSortA.Text = "";
+            timeSelectionSortB.Text = "";
+            timeInsertionSortA.Text = "";
+            timeInsertionSortB.Text = "";
+            timeIterativeSearchA.Text = "";
+            timeIterativeSearchB.Text = "";
+            timeRecursiveSearchA.Text = "";
+            timeRecursiveSearchB.Text = "";
+        }
+
+        // Clear highlighted items in both list boxes
+        private void ClearHighlight()
+        {
+            //highlight
+            lBoxSensorA.UnselectAll();
+            lBoxSensorB.UnselectAll();
+
         }
     }
     
