@@ -9,8 +9,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <xctk:IntegerUpDown x:Name="controlSigma" Minimum="10" Maximum="20" Value="10" Width =" 50" Height="25" VerticalAlignment="top" Margin="34,60,698,300" />
-        <xctk:IntegerUpDown x:Name="controlMu" Minimum="35" Maximum="75" Value="50" Width =" 50" Height="25" VerticalAlignment="top" Margin="146,60,582,300" />
+        <xctk:IntegerUpDown x:Name="controlSigma" Minimum="10" Maximum="20" Value="10" Width =" 50" Height="25" VerticalAlignment="top" Margin="34,60,698,300" LostFocus="sigmaLostFocus" />
+        <xctk:IntegerUpDown x:Name="controlMu" Minimum="35" Maximum="75" Value="50" Width =" 50" Height="25" VerticalAlignment="top" Margin="146,60,582,300" LostFocus="muLostFocus" />
         <Button x:Name="btnLoadData" Content="Load Sensor Data" HorizontalAlignment="Left" Margin="34,95,0,0" VerticalAlignment="Top" Width="184" Click="btnLoadData_Click"/>
         <ListView x:Name="bothDataList" HorizontalAlignment="Left" Height="271" Margin="34,120,0,0" VerticalAlignment="Top" Width="184" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.View>
@@ -60,6 +60,10 @@
         <Label Content="Ticks" HorizontalAlignment="Left" Height="23" Margin="310,369,0,0" VerticalAlignment="Top" Width="43"/>
         <Label Content="Ticks" HorizontalAlignment="Left" Height="23" Margin="582,370,0,0" VerticalAlignment="Top" Width="43"/>
         <Label Content="Ticks" HorizontalAlignment="Left" Height="23" Margin="577,296,0,0" VerticalAlignment="Top" Width="43"/>
+        <Label Content="ms" HorizontalAlignment="Left" Height="23" Margin="306,163,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="ms" HorizontalAlignment="Left" Height="23" Margin="306,95,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="ms" HorizontalAlignment="Left" Height="22" Margin="582,98,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="ms" HorizontalAlignment="Left" Height="22" Margin="575,170,0,0" VerticalAlignment="Top" Width="50"/>
 
     </Grid>
 

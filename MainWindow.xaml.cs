@@ -84,6 +84,12 @@ namespace SatelliteGalileoApp
         //4.4	Create a button and associated click method 
         private void btnLoadData_Click(object sender, RoutedEventArgs e)
         {
+            /*if (controlMu.Value == null || controlSigma.Value == null)
+            {
+                MessageBox.Show("Please enter values for Mu and Sigma.");
+                return;
+            }*/
+            
             ClearTarget();
             ClearTime();
 
@@ -341,6 +347,11 @@ namespace SatelliteGalileoApp
         //4.11	Create search button click methods 
         private void btnIterativeSearchA_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(inputTargetA.Text))
+            {
+                MessageBox.Show("Please enter a target value.");
+                return;
+            }
             ClearTime();
             ClearHighlight();
             try
@@ -384,6 +395,12 @@ namespace SatelliteGalileoApp
 
         private void btnRecursiveSearchA_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(inputTargetA.Text))
+            {
+                MessageBox.Show("Please enter a target value.");
+                return;
+            }
+
             ClearTime();
             ClearHighlight();
 
@@ -427,6 +444,12 @@ namespace SatelliteGalileoApp
 
         private void btnIterativeSearchB_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(inputTargetB.Text))
+            {
+                MessageBox.Show("Please enter a target value.");
+                return;
+            }
+
             ClearTime();
             ClearHighlight();
 
@@ -469,6 +492,12 @@ namespace SatelliteGalileoApp
 
         private void btnRecursiveSearchB_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(inputTargetB.Text))
+            {
+                MessageBox.Show("Please enter a target value.");
+                return;
+            }
+
             ClearTime();
             ClearHighlight();
 
@@ -601,6 +630,23 @@ namespace SatelliteGalileoApp
             lBoxSensorB.UnselectAll();
 
         }
+
+        private void muLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (controlMu.Value == null)
+            {
+                controlMu.Value = 50;
+            }
+        }
+
+        private void sigmaLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (controlSigma.Value == null)
+            {
+                controlSigma.Value = 10;
+            }
+        }
+
     }
     
 }
